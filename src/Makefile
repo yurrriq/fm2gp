@@ -4,10 +4,10 @@ CPP_SRCS  := $(wildcard *.cpp)
 
 all: ${CPP_SRCS:.cpp=.o} \
 $(addprefix lib,${CPP_SRCS:.cpp=.a} ${CPP_SRCS:.cpp=.so}) \
-$(addprefix fm2gp_,${CPP_SRCS:.cpp=})
+$(addprefix ../bin/fm2gp_,${CPP_SRCS:.cpp=})
 
 clean:
-	${RM} *.a *.o *.so fm2gp_*
+	${RM} *.a *.o *.so ../bin/fm2gp_*
 
 install:
 	install -m755 -d ${prefix}/lib
@@ -26,5 +26,5 @@ lib%.a: %.o
 lib%.so: %.cpp
 	c++ ${CPP_FLAGS} -shared -o $@ -fPIC $<
 
-fm2gp_%: %.cpp
+../bin/fm2gp_%: %.cpp
 	c++ ${CPP_FLAGS} -o $@ $<
