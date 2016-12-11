@@ -1,0 +1,27 @@
+\hypertarget{ch02_8hpp_source}{}\subsection{ch02.\+hpp}
+
+\begin{DoxyCode}
+00001 
+\hypertarget{ch02_8hpp_source.tex_l00016}{}\hyperlink{ch02_8hpp_a7884c00903a67beac160ef1dbac5aadb}{00016} \textcolor{keywordtype}{int} \hyperlink{ch02_8hpp_a7884c00903a67beac160ef1dbac5aadb}{multiply0}(\textcolor{keywordtype}{int} n, \textcolor{keywordtype}{int} a)
+00017 \{
+00019   \textcolor{keywordflow}{if} (n == 1) \textcolor{keywordflow}{return} a;
+00021   \textcolor{keywordflow}{return} \hyperlink{ch02_8hpp_a7884c00903a67beac160ef1dbac5aadb}{multiply0}(n - 1, a) + a;
+00022 \}
+00023 
+\hypertarget{ch02_8hpp_source.tex_l00034}{}\hyperlink{ch02_8hpp_a332ce27d3420d4e8434d6bfc7a7795cd}{00034} \textcolor{keywordtype}{bool} \hyperlink{ch02_8hpp_a332ce27d3420d4e8434d6bfc7a7795cd}{odd}(\textcolor{keywordtype}{int} n)
+00035 \{ \textcolor{keywordflow}{return} n & 0x1;
+00036 \}
+00037 
+\hypertarget{ch02_8hpp_source.tex_l00044}{}\hyperlink{ch02_8hpp_a11862a5d46925d507a569ca5a5883168}{00044} \textcolor{keywordtype}{int} \hyperlink{ch02_8hpp_a11862a5d46925d507a569ca5a5883168}{half}(\textcolor{keywordtype}{int} n)
+00045 \{
+00046   \textcolor{keywordflow}{return} n >> 1;
+00047 \}
+00048 
+\hypertarget{ch02_8hpp_source.tex_l00082}{}\hyperlink{ch02_8hpp_a48a38063c9bdb0bf915285f28e412a7f}{00082} \textcolor{keywordtype}{int} \hyperlink{ch02_8hpp_a48a38063c9bdb0bf915285f28e412a7f}{multiply1}(\textcolor{keywordtype}{int} n, \textcolor{keywordtype}{int} a)
+00083 \{
+00084   \textcolor{keywordflow}{if} (n == 1) \textcolor{keywordflow}{return} a;
+00085   \textcolor{keywordtype}{int} result = \hyperlink{ch02_8hpp_a48a38063c9bdb0bf915285f28e412a7f}{multiply1}(\hyperlink{ch02_8hpp_a11862a5d46925d507a569ca5a5883168}{half}(n), a + a);
+00086   \textcolor{keywordflow}{if} (\hyperlink{ch02_8hpp_a332ce27d3420d4e8434d6bfc7a7795cd}{odd}(n)) result = result + a;
+00087   \textcolor{keywordflow}{return} result;
+00088 \}
+\end{DoxyCode}

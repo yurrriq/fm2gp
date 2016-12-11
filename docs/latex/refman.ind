@@ -1,0 +1,26 @@
+\begin{theindex}
+
+  \item {ch02.\+hpp}, \hyperpage{1}
+    \subitem {half}, \hyperpage{2}
+    \subitem {multiply0}, \hyperpage{2}
+    \subitem {multiply1}, \hyperpage{3}
+    \subitem {odd}, \hyperpage{3}
+
+  \indexspace
+
+  \item {half}
+    \subitem {ch02.\+hpp}, \hyperpage{2}
+
+  \indexspace
+
+  \item {multiply0}
+    \subitem {ch02.\+hpp}, \hyperpage{2}
+  \item {multiply1}
+    \subitem {ch02.\+hpp}, \hyperpage{3}
+
+  \indexspace
+
+  \item {odd}
+    \subitem {ch02.\+hpp}, \hyperpage{3}
+
+\end{theindex}
