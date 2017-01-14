@@ -1,4 +1,5 @@
-CPP_FLAGS  = -stdlib=libc++ -std=c++11
+COMPILER  ?= g++
+CPP_FLAGS ?= -std=c++1z -fconcepts
 HEADERS   := $(wildcard *.hpp)
 CPP_SRCS  := $(wildcard *.cpp)
 
@@ -18,13 +19,13 @@ install:
 	install -m755 fm2gp_* ${prefix}/bin
 
 %.o: %.cpp
-	c++ ${CPP_FLAGS} -c $< -o $@
+	${COMPILER} ${CPP_FLAGS} -c $< -o $@
 
 lib%.a: %.o
 	ar rvs $@ $<
 
 lib%.so: %.cpp
-	c++ ${CPP_FLAGS} -shared -o $@ -fPIC $<
+	${COMPILER} ${CPP_FLAGS} -shared -o $@ -fPIC $<
 
 fm2gp_%: %.cpp
-	c++ ${CPP_FLAGS} -o $@ $<
+	${COMPILER} ${CPP_FLAGS} -o $@ $<
