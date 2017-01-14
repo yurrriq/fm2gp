@@ -32,7 +32,8 @@ int multiply0(int n, int a)
   \f]
  */
 bool odd(int n)
-{ return n & 0x1;
+{
+  return n & 0x1;
 }
 
 /*! Return half of a given number.

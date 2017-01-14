@@ -15,7 +15,7 @@ install:
 	install -m755 -d ${prefix}/include
 	install -m644 *.hpp ${prefix}/include
 	install -m755 -d ${prefix}/bin
-	install -m755 fm2gp* ${prefix}/bin
+	install -m755 fm2gp_* ${prefix}/bin
 
 %.o: %.cpp
 	c++ ${CPP_FLAGS} -c $< -o $@
