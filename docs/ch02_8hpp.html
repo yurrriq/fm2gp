@@ -44,6 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -133,8 +134,8 @@ Functions</h2></td></tr>
 \[ \text{half}(n) = \frac{n}{2} \]
 </p>
  
-<p>Definition at line <a class="el" href="ch02_8hpp_source.html#l00044">44</a> of file <a class="el" href="ch02_8hpp_source.html">ch02.hpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keywordflow">return</span> n &gt;&gt; 1;</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div></div><!-- fragment -->
+<p>Definition at line <a class="el" href="ch02_8hpp_source.html#l00045">45</a> of file <a class="el" href="ch02_8hpp_source.html">ch02.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keywordflow">return</span> n &gt;&gt; 1;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a7884c00903a67beac160ef1dbac5aadb"></a>
@@ -236,9 +237,9 @@ Functions</h2></td></tr>
 \begin{eqnarray*} \#_+(n) &amp;=&amp; \lfloor \log_2 n \rfloor + (v(n) - 1) \\ v(n) &amp;=&amp; \text{the number of 1s in the binary representation of $n$, i.e. the }\textit{population count} \end{eqnarray*}
 </p>
  
-<p>Definition at line <a class="el" href="ch02_8hpp_source.html#l00082">82</a> of file <a class="el" href="ch02_8hpp_source.html">ch02.hpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;{</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <span class="keywordflow">if</span> (n == 1) <span class="keywordflow">return</span> a;</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keywordtype">int</span> result = <a class="code" href="ch02_8hpp.html#a48a38063c9bdb0bf915285f28e412a7f">multiply1</a>(<a class="code" href="ch02_8hpp.html#a11862a5d46925d507a569ca5a5883168">half</a>(n), a + a);</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="ch02_8hpp.html#a332ce27d3420d4e8434d6bfc7a7795cd">odd</a>(n)) result = result + a;</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="keywordflow">return</span> result;</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div><div class="ttc" id="ch02_8hpp_html_a11862a5d46925d507a569ca5a5883168"><div class="ttname"><a href="ch02_8hpp.html#a11862a5d46925d507a569ca5a5883168">half</a></div><div class="ttdeci">int half(int n)</div><div class="ttdef"><b>Definition:</b> <a href="ch02_8hpp_source.html#l00044">ch02.hpp:44</a></div></div>
-<div class="ttc" id="ch02_8hpp_html_a48a38063c9bdb0bf915285f28e412a7f"><div class="ttname"><a href="ch02_8hpp.html#a48a38063c9bdb0bf915285f28e412a7f">multiply1</a></div><div class="ttdeci">int multiply1(int n, int a)</div><div class="ttdef"><b>Definition:</b> <a href="ch02_8hpp_source.html#l00082">ch02.hpp:82</a></div></div>
+<p>Definition at line <a class="el" href="ch02_8hpp_source.html#l00083">83</a> of file <a class="el" href="ch02_8hpp_source.html">ch02.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;{</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keywordflow">if</span> (n == 1) <span class="keywordflow">return</span> a;</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="keywordtype">int</span> result = <a class="code" href="ch02_8hpp.html#a48a38063c9bdb0bf915285f28e412a7f">multiply1</a>(<a class="code" href="ch02_8hpp.html#a11862a5d46925d507a569ca5a5883168">half</a>(n), a + a);</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="ch02_8hpp.html#a332ce27d3420d4e8434d6bfc7a7795cd">odd</a>(n)) result = result + a;</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="keywordflow">return</span> result;</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div><div class="ttc" id="ch02_8hpp_html_a11862a5d46925d507a569ca5a5883168"><div class="ttname"><a href="ch02_8hpp.html#a11862a5d46925d507a569ca5a5883168">half</a></div><div class="ttdeci">int half(int n)</div><div class="ttdef"><b>Definition:</b> <a href="ch02_8hpp_source.html#l00045">ch02.hpp:45</a></div></div>
+<div class="ttc" id="ch02_8hpp_html_a48a38063c9bdb0bf915285f28e412a7f"><div class="ttname"><a href="ch02_8hpp.html#a48a38063c9bdb0bf915285f28e412a7f">multiply1</a></div><div class="ttdeci">int multiply1(int n, int a)</div><div class="ttdef"><b>Definition:</b> <a href="ch02_8hpp_source.html#l00083">ch02.hpp:83</a></div></div>
 <div class="ttc" id="ch02_8hpp_html_a332ce27d3420d4e8434d6bfc7a7795cd"><div class="ttname"><a href="ch02_8hpp.html#a332ce27d3420d4e8434d6bfc7a7795cd">odd</a></div><div class="ttdeci">bool odd(int n)</div><div class="ttdef"><b>Definition:</b> <a href="ch02_8hpp_source.html#l00034">ch02.hpp:34</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -265,7 +266,7 @@ Functions</h2></td></tr>
 </p>
  
 <p>Definition at line <a class="el" href="ch02_8hpp_source.html#l00034">34</a> of file <a class="el" href="ch02_8hpp_source.html">ch02.hpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{ <span class="keywordflow">return</span> n &amp; 0x1;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div></div><!-- fragment -->
+<div class="fragment"><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keywordflow">return</span> n &amp; 0x1;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->

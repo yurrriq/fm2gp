@@ -1,0 +1,216 @@
+\hypertarget{ch07_8hpp_source}{}\subsection{ch07.\+hpp}
+
+\begin{DoxyCode}
+00001 
+00008 \textcolor{comment}{// #include <functional>}
+00009 \textcolor{comment}{// #include <type\_traits>}
+00010 
+00011 \textcolor{preprocessor}{#define Integer typename}
+00012 \textcolor{preprocessor}{#define Regular typename}
+00013 
+00014 \textcolor{preprocessor}{#define SemigroupOperation typename}
+00015 \textcolor{preprocessor}{#define MonoidOperation typename}
+00016 \textcolor{preprocessor}{#define GroupOperation typename}
+00017 
+00018 \textcolor{preprocessor}{#define AdditiveGroup typename}
+00019 
+00020 \textcolor{preprocessor}{#define NoncommutativeAdditiveGroup typename}
+00021 \textcolor{preprocessor}{#define NoncommutativeAdditiveMonoid typename}
+00022 \textcolor{preprocessor}{#define NoncommutativeAdditiveSemigroup typename}
+00023 
+00024 \textcolor{preprocessor}{#define MultiplicativeGroup typename}
+00025 \textcolor{preprocessor}{#define MultiplicativeMonoid typename}
+00026 \textcolor{preprocessor}{#define MultiplicativeSemigroup typename}
+00027 
+00028 \textcolor{keyword}{template} <\textcolor{keyword}{typename} Operation, \textcolor{keyword}{typename} Element>
+00029 concept \textcolor{keywordtype}{bool} Associative = requires(Operation op, Element x, Element y, Element z) \{
+00030   op(x, op(y, z)) == op(op(x, y), z);
+00031 \};
+00032 
+00033 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>
+00034 concept \textcolor{keywordtype}{bool} EqualityComparable = requires(T a, T b) \{
+00035   \{ a == b \} -> bool;
+00036 \};
+00037 
+00038 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>
+00039 concept \textcolor{keywordtype}{bool} InequalityComparable = requires(T a, T b) \{
+00040   \{ a != b \} -> bool;
+00041 \};
+00042 
+00043 
+00054 \textcolor{keyword}{template} <Integer N>
+\hypertarget{ch07_8hpp_source.tex_l00055}{}\hyperlink{ch07_8hpp_a77588a29d6eeebc52834d05039b7f83f}{00055} \textcolor{keywordtype}{bool} \hyperlink{ch07_8hpp_a77588a29d6eeebc52834d05039b7f83f}{odd}(N n)
+00056 \{
+00057   \textcolor{keywordflow}{return} bool(n & 0x1);
+00058 \}
+00059 
+00066 \textcolor{keyword}{template} <Integer N>
+\hypertarget{ch07_8hpp_source.tex_l00067}{}\hyperlink{ch07_8hpp_a5c310c077a590421ce629a0a40d6b841}{00067} N \hyperlink{ch07_8hpp_a5c310c077a590421ce629a0a40d6b841}{half}(N n)
+00068 \{
+00069   \textcolor{keywordflow}{return} n >> 1;
+00070 \}
+00071 
+00072 
+00073 
+00074 \textcolor{keyword}{template} <NoncommutativeAdditiveMono\textcolor{keywordtype}{id} T>
+00075 T identity\_element(std::plus<T>)
+00076 \{
+00077   \textcolor{comment}{// "The additive identity is 0."}
+00078   \textcolor{keywordflow}{return} T(0);
+00079 \}
+00080 
+00081 \textcolor{keyword}{template} <MultiplicativeMono\textcolor{keywordtype}{id} T>
+00082 T identity\_element(std::multiplies<T>)
+00083 \{
+00084   \textcolor{comment}{// "The multiplicative identity is 1."}
+00085   \textcolor{keywordflow}{return} T(1);
+00086 \}
+00087 
+00088 \textcolor{keyword}{template} <AdditiveGroup T>
+00089 std::negate<T> inverse\_operation(std::plus<T>)
+00090 \{
+00091   \textcolor{keywordflow}{return} std::negate<T>();
+00092 \}
+00093 
+00094 
+00095 \textcolor{comment}{// Generalization of the multiplicative\_inverse function.}
+00096 \textcolor{keyword}{template} <MultiplicativeGroup T>
+\hypertarget{ch07_8hpp_source.tex_l00097}{}\hyperlink{structreciprocal}{00097} \textcolor{keyword}{struct }\hyperlink{structreciprocal}{reciprocal}
+00098 \{
+00099   T operator()(\textcolor{keyword}{const} T& x)\textcolor{keyword}{ const }\{
+00100     \textcolor{keywordflow}{return} T(1) / 1;
+00101   \}
+00102 \};
+00103 
+00104 \textcolor{keyword}{template} <MultiplicativeGroup T>
+00105 \hyperlink{structreciprocal}{reciprocal<T>} inverse\_operation(std::multiplies<T>)
+00106 \{
+00107   \textcolor{keywordflow}{return} \hyperlink{structreciprocal}{reciprocal<T>}();
+00108 \}
+00109 
+00110 
+00111 
+00112 \textcolor{keyword}{template} <NoncommutativeAdditiveSemigroup A, Integer N>
+00113 A multiply\_accumulate\_semigroup(A r, N n, A a)
+00114 \{
+00115   \textcolor{keywordflow}{if} (n == 0) \textcolor{keywordflow}{return} r;
+00116   \textcolor{keywordflow}{while} (\textcolor{keyword}{true}) \{
+00117     \textcolor{keywordflow}{if} (\hyperlink{ch07_8hpp_a77588a29d6eeebc52834d05039b7f83f}{odd}(n)) \{
+00118       r = r + a;
+00119       \textcolor{keywordflow}{if} (n == 1) \textcolor{keywordflow}{return} r;
+00120     \}
+00121     n = \hyperlink{ch07_8hpp_a5c310c077a590421ce629a0a40d6b841}{half}(n);
+00122     a = a + a;
+00123   \}
+00124 \}
+00125 
+00126 \textcolor{keyword}{template} <NoncommutativeAdditiveSemigroup A, Integer N>
+00127 A multiply\_semigroup(N n, A a)
+00128 \{
+00129   \textcolor{keywordflow}{while} (!\hyperlink{ch07_8hpp_a77588a29d6eeebc52834d05039b7f83f}{odd}(n)) \{
+00130     a = a + a;
+00131     n = \hyperlink{ch07_8hpp_a5c310c077a590421ce629a0a40d6b841}{half}(n);
+00132   \}
+00133   \textcolor{keywordflow}{if} (n == 1) \textcolor{keywordflow}{return} a;
+00134   \textcolor{keywordflow}{return} multiply\_accumulate\_semigroup(a, \hyperlink{ch07_8hpp_a5c310c077a590421ce629a0a40d6b841}{half}(n - 1), a + a);
+00135 \}
+00136 
+00137 \textcolor{keyword}{template} <NoncommutativeAdditiveMono\textcolor{keywordtype}{id} A, Integer N>
+00138 A multiply\_monoid(N n, A a)
+00139 \{
+00140   \textcolor{keywordflow}{if} (n == 0) \textcolor{keywordflow}{return} A(0);
+00141   \textcolor{keywordflow}{return} multiply\_semigroup(n, a);
+00142 \}
+00143 
+00144 \textcolor{keyword}{template} <NoncommutativeAdditiveGroup A, Integer N>
+00145 A multiply\_group(N n, A a)
+00146 \{
+00147   \textcolor{keywordflow}{if} (n < 0) \{
+00148     n = -n;
+00149     a = -a;
+00150   \}
+00151   \textcolor{keywordflow}{return} multiply\_monoid(n, a);
+00152 \}
+00153 
+00154 \textcolor{keyword}{template} <MultiplicativeSemigroup A, Integer N>
+00155 A power\_accumulate\_semigroup(A r, A a, N n)
+00156 \{
+00157   \textcolor{keywordflow}{if} (n == 0) \textcolor{keywordflow}{return} r;
+00158   \textcolor{keywordflow}{while} (\textcolor{keyword}{true}) \{
+00159     \textcolor{keywordflow}{if} (\hyperlink{ch07_8hpp_a77588a29d6eeebc52834d05039b7f83f}{odd}(n)) \{
+00160       r = r * a;
+00161       \textcolor{keywordflow}{if} (n == 1) \textcolor{keywordflow}{return} r;
+00162     \}
+00163     n = \hyperlink{ch07_8hpp_a5c310c077a590421ce629a0a40d6b841}{half}(n);
+00164     a = a * a;
+00165   \}
+00166 \}
+00167 
+00168 \textcolor{keyword}{template} <MultiplicativeSemigroup A, Integer N>
+00169 A power\_semigroup(A a, N n)
+00170 \{
+00171   \textcolor{keywordflow}{while} (!\hyperlink{ch07_8hpp_a77588a29d6eeebc52834d05039b7f83f}{odd}(n)) \{
+00172     a = a * a;
+00173     n = \hyperlink{ch07_8hpp_a5c310c077a590421ce629a0a40d6b841}{half}(n);
+00174   \}
+00175   \textcolor{keywordflow}{if} (n == 1) \textcolor{keywordflow}{return} a;
+00176   \textcolor{keywordflow}{return} power\_accumulate\_semigroup(a, a * a, \hyperlink{ch07_8hpp_a5c310c077a590421ce629a0a40d6b841}{half}(n - 1));
+00177 \}
+00178 
+00179 \textcolor{keyword}{template} <MultiplicativeMono\textcolor{keywordtype}{id} A, Integer N>
+00180 A power\_monoid(A a, N n)
+00181 \{
+00182   \textcolor{keywordflow}{if} (n == 0) \textcolor{keywordflow}{return} A(1);
+00183   \textcolor{keywordflow}{return} power\_semigroup(a, n);
+00184 \}
+00185 
+00186 \textcolor{keyword}{template} <MultiplicativeGroup A>
+00187 A multiplicative\_inverse(A a)
+00188 \{
+00189   \textcolor{keywordflow}{return} A(1) / a;
+00190 \}
+00191 
+00192 \textcolor{keyword}{template} <MultiplicativeGroup A, Integer N>
+00193 A power\_group(A a, N n)
+00194 \{
+00195   \textcolor{keywordflow}{if} (n < 0) \{
+00196     n = -n;
+00197     a = multiplicative\_inverse(a);
+00198   \}
+00199   \textcolor{keywordflow}{return} power\_monoid(a, n);
+00200 \}
+00201 
+00202 \textcolor{keyword}{template} <Regular A, Integer N, SemigroupOperation Op>
+00203 A power\_accumulate\_semigroup(A r, A a, N n, Op op)
+00204 \{
+00205   \textcolor{keywordflow}{if} (n == 0) \textcolor{keywordflow}{return} r;
+00206   \textcolor{keywordflow}{while} (\textcolor{keyword}{true}) \{
+00207     \textcolor{keywordflow}{if} (\hyperlink{ch07_8hpp_a77588a29d6eeebc52834d05039b7f83f}{odd}(n)) \{
+00208       r = op(r, a);
+00209       \textcolor{keywordflow}{if} (n == 1) \textcolor{keywordflow}{return} r;
+00210     \}
+00211     n = \hyperlink{ch07_8hpp_a5c310c077a590421ce629a0a40d6b841}{half}(n);
+00212     a = op(a, a);
+00213   \}
+00214 \}
+00215 
+00216 \textcolor{keyword}{template} <Regular A, Integer N, SemigroupOperation Op>
+00217 A power\_semigroup(A a, N n, Op op)
+00218 \{
+00219   \textcolor{keywordflow}{while} (!\hyperlink{ch07_8hpp_a77588a29d6eeebc52834d05039b7f83f}{odd}(n)) \{
+00220     a = op(a, a);
+00221     n = \hyperlink{ch07_8hpp_a5c310c077a590421ce629a0a40d6b841}{half}(n);
+00222   \}
+00223   \textcolor{keywordflow}{if} (n == 1) \textcolor{keywordflow}{return} a;
+00224   \textcolor{keywordflow}{return} power\_accumulate\_semigroup(a, op(a, a), \hyperlink{ch07_8hpp_a5c310c077a590421ce629a0a40d6b841}{half}(n - 1), op);
+00225 \}
+00226 
+00227 \textcolor{keyword}{template} <Regular A, Integer N, Mono\textcolor{keywordtype}{id}Operation Op>
+00228 \textcolor{comment}{// requires(Domain<Op, A>)}
+00229 A power\_monoid(A a, N n, Op op)
+00230 \{
+00231   \textcolor{comment}{// precondition (n >= 0);}
+00232   \textcolor{keywordflow}{if} (n == 0); \textcolor{keywordflow}{return} identity\_element(op);
+00233   \textcolor{keywordflow}{return} power\_semigroup(a, n, op);
+00234 \}
+\end{DoxyCode}
