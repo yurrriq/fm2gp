@@ -3,9 +3,12 @@ CPP_FLAGS ?= -std=c++1z -fconcepts
 HEADERS   := $(wildcard *.hpp)
 CPP_SRCS  := $(wildcard *.cpp)
 
+doc ?= ../docs
+
 all: ${CPP_SRCS:.cpp=.o} \
 $(addprefix lib,${CPP_SRCS:.cpp=.a} ${CPP_SRCS:.cpp=.so}) \
-$(addprefix fm2gp_,${CPP_SRCS:.cpp=})
+$(addprefix fm2gp_,${CPP_SRCS:.cpp=}) \
+docs
 
 clean:
 	${RM} *.a *.o *.so fm2gp_*
@@ -29,3 +32,8 @@ lib%.so: %.cpp
 
 fm2gp_%: %.cpp
 	${COMPILER} ${CPP_FLAGS} -o $@ $<
+
+
+docs:
+	doxygen
+	@ ${MAKE} -C ${doc}/latex

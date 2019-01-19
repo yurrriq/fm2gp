@@ -39,13 +39,13 @@
 00042 
 00043 
 00054 \textcolor{keyword}{template} <Integer N>
-\hypertarget{ch07_8hpp_source.tex_l00055}{}\hyperlink{ch07_8hpp_a77588a29d6eeebc52834d05039b7f83f}{00055} \textcolor{keywordtype}{bool} \hyperlink{ch07_8hpp_a77588a29d6eeebc52834d05039b7f83f}{odd}(N n)
+\Hypertarget{ch07_8hpp_source_l00055}\mbox{\hyperlink{ch07_8hpp_a77588a29d6eeebc52834d05039b7f83f}{00055}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{ch07_8hpp_a77588a29d6eeebc52834d05039b7f83f}{odd}}(N n)
 00056 \{
 00057   \textcolor{keywordflow}{return} bool(n & 0x1);
 00058 \}
 00059 
 00066 \textcolor{keyword}{template} <Integer N>
-\hypertarget{ch07_8hpp_source.tex_l00067}{}\hyperlink{ch07_8hpp_a5c310c077a590421ce629a0a40d6b841}{00067} N \hyperlink{ch07_8hpp_a5c310c077a590421ce629a0a40d6b841}{half}(N n)
+\Hypertarget{ch07_8hpp_source_l00067}\mbox{\hyperlink{ch07_8hpp_a5c310c077a590421ce629a0a40d6b841}{00067}} N \mbox{\hyperlink{ch07_8hpp_a5c310c077a590421ce629a0a40d6b841}{half}}(N n)
 00068 \{
 00069   \textcolor{keywordflow}{return} n >> 1;
 00070 \}
@@ -75,7 +75,7 @@
 00094 
 00095 \textcolor{comment}{// Generalization of the multiplicative\_inverse function.}
 00096 \textcolor{keyword}{template} <MultiplicativeGroup T>
-\hypertarget{ch07_8hpp_source.tex_l00097}{}\hyperlink{structreciprocal}{00097} \textcolor{keyword}{struct }\hyperlink{structreciprocal}{reciprocal}
+\Hypertarget{ch07_8hpp_source_l00097}\mbox{\hyperlink{structreciprocal}{00097}} \textcolor{keyword}{struct }\mbox{\hyperlink{structreciprocal}{reciprocal}}
 00098 \{
 00099   T operator()(\textcolor{keyword}{const} T& x)\textcolor{keyword}{ const }\{
 00100     \textcolor{keywordflow}{return} T(1) / 1;
@@ -83,9 +83,9 @@
 00102 \};
 00103 
 00104 \textcolor{keyword}{template} <MultiplicativeGroup T>
-00105 \hyperlink{structreciprocal}{reciprocal<T>} inverse\_operation(std::multiplies<T>)
+00105 \mbox{\hyperlink{structreciprocal}{reciprocal<T>}} inverse\_operation(std::multiplies<T>)
 00106 \{
-00107   \textcolor{keywordflow}{return} \hyperlink{structreciprocal}{reciprocal<T>}();
+00107   \textcolor{keywordflow}{return} \mbox{\hyperlink{structreciprocal}{reciprocal<T>}}();
 00108 \}
 00109 
 00110 
@@ -95,11 +95,11 @@
 00114 \{
 00115   \textcolor{keywordflow}{if} (n == 0) \textcolor{keywordflow}{return} r;
 00116   \textcolor{keywordflow}{while} (\textcolor{keyword}{true}) \{
-00117     \textcolor{keywordflow}{if} (\hyperlink{ch07_8hpp_a77588a29d6eeebc52834d05039b7f83f}{odd}(n)) \{
+00117     \textcolor{keywordflow}{if} (\mbox{\hyperlink{ch07_8hpp_a77588a29d6eeebc52834d05039b7f83f}{odd}}(n)) \{
 00118       r = r + a;
 00119       \textcolor{keywordflow}{if} (n == 1) \textcolor{keywordflow}{return} r;
 00120     \}
-00121     n = \hyperlink{ch07_8hpp_a5c310c077a590421ce629a0a40d6b841}{half}(n);
+00121     n = \mbox{\hyperlink{ch07_8hpp_a5c310c077a590421ce629a0a40d6b841}{half}}(n);
 00122     a = a + a;
 00123   \}
 00124 \}
@@ -107,12 +107,12 @@
 00126 \textcolor{keyword}{template} <NoncommutativeAdditiveSemigroup A, Integer N>
 00127 A multiply\_semigroup(N n, A a)
 00128 \{
-00129   \textcolor{keywordflow}{while} (!\hyperlink{ch07_8hpp_a77588a29d6eeebc52834d05039b7f83f}{odd}(n)) \{
+00129   \textcolor{keywordflow}{while} (!\mbox{\hyperlink{ch07_8hpp_a77588a29d6eeebc52834d05039b7f83f}{odd}}(n)) \{
 00130     a = a + a;
-00131     n = \hyperlink{ch07_8hpp_a5c310c077a590421ce629a0a40d6b841}{half}(n);
+00131     n = \mbox{\hyperlink{ch07_8hpp_a5c310c077a590421ce629a0a40d6b841}{half}}(n);
 00132   \}
 00133   \textcolor{keywordflow}{if} (n == 1) \textcolor{keywordflow}{return} a;
-00134   \textcolor{keywordflow}{return} multiply\_accumulate\_semigroup(a, \hyperlink{ch07_8hpp_a5c310c077a590421ce629a0a40d6b841}{half}(n - 1), a + a);
+00134   \textcolor{keywordflow}{return} multiply\_accumulate\_semigroup(a, \mbox{\hyperlink{ch07_8hpp_a5c310c077a590421ce629a0a40d6b841}{half}}(n - 1), a + a);
 00135 \}
 00136 
 00137 \textcolor{keyword}{template} <NoncommutativeAdditiveMono\textcolor{keywordtype}{id} A, Integer N>
@@ -137,11 +137,11 @@
 00156 \{
 00157   \textcolor{keywordflow}{if} (n == 0) \textcolor{keywordflow}{return} r;
 00158   \textcolor{keywordflow}{while} (\textcolor{keyword}{true}) \{
-00159     \textcolor{keywordflow}{if} (\hyperlink{ch07_8hpp_a77588a29d6eeebc52834d05039b7f83f}{odd}(n)) \{
+00159     \textcolor{keywordflow}{if} (\mbox{\hyperlink{ch07_8hpp_a77588a29d6eeebc52834d05039b7f83f}{odd}}(n)) \{
 00160       r = r * a;
 00161       \textcolor{keywordflow}{if} (n == 1) \textcolor{keywordflow}{return} r;
 00162     \}
-00163     n = \hyperlink{ch07_8hpp_a5c310c077a590421ce629a0a40d6b841}{half}(n);
+00163     n = \mbox{\hyperlink{ch07_8hpp_a5c310c077a590421ce629a0a40d6b841}{half}}(n);
 00164     a = a * a;
 00165   \}
 00166 \}
@@ -149,12 +149,12 @@
 00168 \textcolor{keyword}{template} <MultiplicativeSemigroup A, Integer N>
 00169 A power\_semigroup(A a, N n)
 00170 \{
-00171   \textcolor{keywordflow}{while} (!\hyperlink{ch07_8hpp_a77588a29d6eeebc52834d05039b7f83f}{odd}(n)) \{
+00171   \textcolor{keywordflow}{while} (!\mbox{\hyperlink{ch07_8hpp_a77588a29d6eeebc52834d05039b7f83f}{odd}}(n)) \{
 00172     a = a * a;
-00173     n = \hyperlink{ch07_8hpp_a5c310c077a590421ce629a0a40d6b841}{half}(n);
+00173     n = \mbox{\hyperlink{ch07_8hpp_a5c310c077a590421ce629a0a40d6b841}{half}}(n);
 00174   \}
 00175   \textcolor{keywordflow}{if} (n == 1) \textcolor{keywordflow}{return} a;
-00176   \textcolor{keywordflow}{return} power\_accumulate\_semigroup(a, a * a, \hyperlink{ch07_8hpp_a5c310c077a590421ce629a0a40d6b841}{half}(n - 1));
+00176   \textcolor{keywordflow}{return} power\_accumulate\_semigroup(a, a * a, \mbox{\hyperlink{ch07_8hpp_a5c310c077a590421ce629a0a40d6b841}{half}}(n - 1));
 00177 \}
 00178 
 00179 \textcolor{keyword}{template} <MultiplicativeMono\textcolor{keywordtype}{id} A, Integer N>
@@ -185,11 +185,11 @@
 00204 \{
 00205   \textcolor{keywordflow}{if} (n == 0) \textcolor{keywordflow}{return} r;
 00206   \textcolor{keywordflow}{while} (\textcolor{keyword}{true}) \{
-00207     \textcolor{keywordflow}{if} (\hyperlink{ch07_8hpp_a77588a29d6eeebc52834d05039b7f83f}{odd}(n)) \{
+00207     \textcolor{keywordflow}{if} (\mbox{\hyperlink{ch07_8hpp_a77588a29d6eeebc52834d05039b7f83f}{odd}}(n)) \{
 00208       r = op(r, a);
 00209       \textcolor{keywordflow}{if} (n == 1) \textcolor{keywordflow}{return} r;
 00210     \}
-00211     n = \hyperlink{ch07_8hpp_a5c310c077a590421ce629a0a40d6b841}{half}(n);
+00211     n = \mbox{\hyperlink{ch07_8hpp_a5c310c077a590421ce629a0a40d6b841}{half}}(n);
 00212     a = op(a, a);
 00213   \}
 00214 \}
@@ -197,12 +197,12 @@
 00216 \textcolor{keyword}{template} <Regular A, Integer N, SemigroupOperation Op>
 00217 A power\_semigroup(A a, N n, Op op)
 00218 \{
-00219   \textcolor{keywordflow}{while} (!\hyperlink{ch07_8hpp_a77588a29d6eeebc52834d05039b7f83f}{odd}(n)) \{
+00219   \textcolor{keywordflow}{while} (!\mbox{\hyperlink{ch07_8hpp_a77588a29d6eeebc52834d05039b7f83f}{odd}}(n)) \{
 00220     a = op(a, a);
-00221     n = \hyperlink{ch07_8hpp_a5c310c077a590421ce629a0a40d6b841}{half}(n);
+00221     n = \mbox{\hyperlink{ch07_8hpp_a5c310c077a590421ce629a0a40d6b841}{half}}(n);
 00222   \}
 00223   \textcolor{keywordflow}{if} (n == 1) \textcolor{keywordflow}{return} a;
-00224   \textcolor{keywordflow}{return} power\_accumulate\_semigroup(a, op(a, a), \hyperlink{ch07_8hpp_a5c310c077a590421ce629a0a40d6b841}{half}(n - 1), op);
+00224   \textcolor{keywordflow}{return} power\_accumulate\_semigroup(a, op(a, a), \mbox{\hyperlink{ch07_8hpp_a5c310c077a590421ce629a0a40d6b841}{half}}(n - 1), op);
 00225 \}
 00226 
 00227 \textcolor{keyword}{template} <Regular A, Integer N, Mono\textcolor{keywordtype}{id}Operation Op>

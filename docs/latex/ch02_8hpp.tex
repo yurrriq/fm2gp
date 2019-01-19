@@ -8,13 +8,13 @@ Egyptian Multiplication.
 \subsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-int \hyperlink{ch02_8hpp_a7884c00903a67beac160ef1dbac5aadb}{multiply0} (int n, int a)
+int \mbox{\hyperlink{ch02_8hpp_a7884c00903a67beac160ef1dbac5aadb}{multiply0}} (int n, int a)
 \item 
-bool \hyperlink{ch02_8hpp_a332ce27d3420d4e8434d6bfc7a7795cd}{odd} (int n)
+bool \mbox{\hyperlink{ch02_8hpp_a332ce27d3420d4e8434d6bfc7a7795cd}{odd}} (int n)
 \item 
-int \hyperlink{ch02_8hpp_a11862a5d46925d507a569ca5a5883168}{half} (int n)
+int \mbox{\hyperlink{ch02_8hpp_a11862a5d46925d507a569ca5a5883168}{half}} (int n)
 \item 
-int \hyperlink{ch02_8hpp_a48a38063c9bdb0bf915285f28e412a7f}{multiply1} (int n, int a)
+int \mbox{\hyperlink{ch02_8hpp_a48a38063c9bdb0bf915285f28e412a7f}{multiply1}} (int n, int a)
 \end{DoxyCompactItemize}
 
 
@@ -29,23 +29,22 @@ Eric Bailey
 \end{DoxyDate}
 
 
-Definition in file \hyperlink{ch02_8hpp_source}{ch02.\+hpp}.
+Definition in file \mbox{\hyperlink{ch02_8hpp_source}{ch02.\+hpp}}.
 
 
 
 \subsubsection{Function Documentation}
+\mbox{\Hypertarget{ch02_8hpp_a11862a5d46925d507a569ca5a5883168}\label{ch02_8hpp_a11862a5d46925d507a569ca5a5883168}} 
 \index{ch02.\+hpp@{ch02.\+hpp}!half@{half}}
 \index{half@{half}!ch02.\+hpp@{ch02.\+hpp}}
-\paragraph[{\texorpdfstring{half(int n)}{half(int n)}}]{\setlength{\rightskip}{0pt plus 5cm}int half (
-\begin{DoxyParamCaption}
-\item[{int}]{n}
-\end{DoxyParamCaption}
-)}\hypertarget{ch02_8hpp_a11862a5d46925d507a569ca5a5883168}{}\label{ch02_8hpp_a11862a5d46925d507a569ca5a5883168}
+\paragraph{\texorpdfstring{half()}{half()}}
+{\footnotesize\ttfamily int half (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
 Return half of a given number.
 
 \[ \text{half}(n) = \frac{n}{2} \] 
 
-Definition at line \hyperlink{ch02_8hpp_source_l00045}{45} of file \hyperlink{ch02_8hpp_source}{ch02.\+hpp}.
+Definition at line \mbox{\hyperlink{ch02_8hpp_source_l00045}{45}} of file \mbox{\hyperlink{ch02_8hpp_source}{ch02.\+hpp}}.
 
 
 \begin{DoxyCode}
@@ -53,14 +52,12 @@ Definition at line \hyperlink{ch02_8hpp_source_l00045}{45} of file \hyperlink{ch
 00047   \textcolor{keywordflow}{return} n >> 1;
 00048 \}
 \end{DoxyCode}
+\mbox{\Hypertarget{ch02_8hpp_a7884c00903a67beac160ef1dbac5aadb}\label{ch02_8hpp_a7884c00903a67beac160ef1dbac5aadb}} 
 \index{ch02.\+hpp@{ch02.\+hpp}!multiply0@{multiply0}}
 \index{multiply0@{multiply0}!ch02.\+hpp@{ch02.\+hpp}}
-\paragraph[{\texorpdfstring{multiply0(int n, int a)}{multiply0(int n, int a)}}]{\setlength{\rightskip}{0pt plus 5cm}int multiply0 (
-\begin{DoxyParamCaption}
-\item[{int}]{n, }
-\item[{int}]{a}
-\end{DoxyParamCaption}
-)}\hypertarget{ch02_8hpp_a7884c00903a67beac160ef1dbac5aadb}{}\label{ch02_8hpp_a7884c00903a67beac160ef1dbac5aadb}
+\paragraph{\texorpdfstring{multiply0()}{multiply0()}}
+{\footnotesize\ttfamily int multiply0 (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{int}]{a }\end{DoxyParamCaption})}
+
 Add instances of {\ttfamily a} together {\ttfamily n} times.
 
 Efficiency\+: $\mathcal{O}(n)$
@@ -79,23 +76,21 @@ $n \times a$
 
 \begin{equation}(n + 1)a = na + a \tag{2.2}\end{equation} 
 
-Definition at line \hyperlink{ch02_8hpp_source_l00016}{16} of file \hyperlink{ch02_8hpp_source}{ch02.\+hpp}.
+Definition at line \mbox{\hyperlink{ch02_8hpp_source_l00016}{16}} of file \mbox{\hyperlink{ch02_8hpp_source}{ch02.\+hpp}}.
 
 
 \begin{DoxyCode}
 00017 \{
 00019   \textcolor{keywordflow}{if} (n == 1) \textcolor{keywordflow}{return} a;
-00021   \textcolor{keywordflow}{return} \hyperlink{ch02_8hpp_a7884c00903a67beac160ef1dbac5aadb}{multiply0}(n - 1, a) + a;
+00021   \textcolor{keywordflow}{return} \mbox{\hyperlink{ch02_8hpp_a7884c00903a67beac160ef1dbac5aadb}{multiply0}}(n - 1, a) + a;
 00022 \}
 \end{DoxyCode}
+\mbox{\Hypertarget{ch02_8hpp_a48a38063c9bdb0bf915285f28e412a7f}\label{ch02_8hpp_a48a38063c9bdb0bf915285f28e412a7f}} 
 \index{ch02.\+hpp@{ch02.\+hpp}!multiply1@{multiply1}}
 \index{multiply1@{multiply1}!ch02.\+hpp@{ch02.\+hpp}}
-\paragraph[{\texorpdfstring{multiply1(int n, int a)}{multiply1(int n, int a)}}]{\setlength{\rightskip}{0pt plus 5cm}int multiply1 (
-\begin{DoxyParamCaption}
-\item[{int}]{n, }
-\item[{int}]{a}
-\end{DoxyParamCaption}
-)}\hypertarget{ch02_8hpp_a48a38063c9bdb0bf915285f28e412a7f}{}\label{ch02_8hpp_a48a38063c9bdb0bf915285f28e412a7f}
+\paragraph{\texorpdfstring{multiply1()}{multiply1()}}
+{\footnotesize\ttfamily int multiply1 (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{int}]{a }\end{DoxyParamCaption})}
+
 \char`\"{}\+Egyptian multiplication\char`\"{} aka the \char`\"{}\+Russian Peasant Algorithm\char`\"{}
 
 \begin{eqnarray*} 4a &=& ((a + a) + a) + a \\ &=& (a + a) + (a + a) \end{eqnarray*}
@@ -103,53 +98,54 @@ Definition at line \hyperlink{ch02_8hpp_source_l00016}{16} of file \hyperlink{ch
 The law of associativity of addition\+: \[ a + (b + c) = (a + b) + c \]
 
 \tabulinesep=1mm
-\begin{longtabu} spread 0pt [c]{*3{|X[-1]}|}
+\begin{longtabu} spread 0pt [c]{*{3}{|X[-1]}|}
 \hline
-\rowcolor{\tableheadbgcolor}\PBS\raggedleft {\bf Power of 2 }&\PBS\centering {\bf 1-\/bits }&\PBS\raggedleft {\bf Doublings  }\\\cline{1-3}
+\rowcolor{\tableheadbgcolor}\textbf{ Power of 2  }&\textbf{ 1-\/bits  }&\textbf{ Doublings   }\\\cline{1-3}
 \endfirsthead
 \hline
 \endfoot
 \hline
-\rowcolor{\tableheadbgcolor}\PBS\raggedleft {\bf Power of 2 }&\PBS\centering {\bf 1-\/bits }&\PBS\raggedleft {\bf Doublings  }\\\cline{1-3}
+\rowcolor{\tableheadbgcolor}\textbf{ Power of 2  }&\textbf{ 1-\/bits  }&\textbf{ Doublings   }\\\cline{1-3}
 \endhead
-\PBS\raggedleft 1 &\PBS\centering $\checkmark$ &\PBS\raggedleft 59 \\\cline{1-3}
-\PBS\raggedleft 2 &\PBS\centering &\PBS\raggedleft 118 \\\cline{1-3}
-\PBS\raggedleft 4 &\PBS\centering &\PBS\raggedleft 236 \\\cline{1-3}
-\PBS\raggedleft 8 &\PBS\centering $\checkmark$ &\PBS\raggedleft 472 \\\cline{1-3}
-\PBS\raggedleft 16 &\PBS\centering &\PBS\raggedleft 944 \\\cline{1-3}
-\PBS\raggedleft 32 &\PBS\centering $\checkmark$ &\PBS\raggedleft 1888 \\\cline{1-3}
+1  &$\checkmark$  &59   \\\cline{1-3}
+2  &&118   \\\cline{1-3}
+4  &&236   \\\cline{1-3}
+8  &$\checkmark$  &472   \\\cline{1-3}
+16  &&944   \\\cline{1-3}
+32  &$\checkmark$  &1888   \\\cline{1-3}
 \end{longtabu}
+
+
 \[ 41 \times 59 = (1 \times 59) + (8 \times 59) + (32 \times 59) \]
 
 Efficiency\+: $\mathcal{O}(\log_2 n)$
 
 \begin{eqnarray*} \#_+(n) &=& \lfloor \log_2 n \rfloor + (v(n) - 1) \\ v(n) &=& \text{the number of 1s in the binary representation of $n$, i.e. the }\textit{population count} \end{eqnarray*} 
 
-Definition at line \hyperlink{ch02_8hpp_source_l00083}{83} of file \hyperlink{ch02_8hpp_source}{ch02.\+hpp}.
+Definition at line \mbox{\hyperlink{ch02_8hpp_source_l00083}{83}} of file \mbox{\hyperlink{ch02_8hpp_source}{ch02.\+hpp}}.
 
 
 \begin{DoxyCode}
 00084 \{
 00085   \textcolor{keywordflow}{if} (n == 1) \textcolor{keywordflow}{return} a;
-00086   \textcolor{keywordtype}{int} result = \hyperlink{ch02_8hpp_a48a38063c9bdb0bf915285f28e412a7f}{multiply1}(\hyperlink{ch02_8hpp_a11862a5d46925d507a569ca5a5883168}{half}(n), a + a);
-00087   \textcolor{keywordflow}{if} (\hyperlink{ch02_8hpp_a332ce27d3420d4e8434d6bfc7a7795cd}{odd}(n)) result = result + a;
+00086   \textcolor{keywordtype}{int} result = \mbox{\hyperlink{ch02_8hpp_a48a38063c9bdb0bf915285f28e412a7f}{multiply1}}(\mbox{\hyperlink{ch02_8hpp_a11862a5d46925d507a569ca5a5883168}{half}}(n), a + a);
+00087   \textcolor{keywordflow}{if} (\mbox{\hyperlink{ch02_8hpp_a332ce27d3420d4e8434d6bfc7a7795cd}{odd}}(n)) result = result + a;
 00088   \textcolor{keywordflow}{return} result;
 00089 \}
 \end{DoxyCode}
+\mbox{\Hypertarget{ch02_8hpp_a332ce27d3420d4e8434d6bfc7a7795cd}\label{ch02_8hpp_a332ce27d3420d4e8434d6bfc7a7795cd}} 
 \index{ch02.\+hpp@{ch02.\+hpp}!odd@{odd}}
 \index{odd@{odd}!ch02.\+hpp@{ch02.\+hpp}}
-\paragraph[{\texorpdfstring{odd(int n)}{odd(int n)}}]{\setlength{\rightskip}{0pt plus 5cm}bool odd (
-\begin{DoxyParamCaption}
-\item[{int}]{n}
-\end{DoxyParamCaption}
-)}\hypertarget{ch02_8hpp_a332ce27d3420d4e8434d6bfc7a7795cd}{}\label{ch02_8hpp_a332ce27d3420d4e8434d6bfc7a7795cd}
+\paragraph{\texorpdfstring{odd()}{odd()}}
+{\footnotesize\ttfamily bool odd (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
 Determine whether a number is odd.
 
 \[ n = \frac{n - 1}{2} + \frac{n - 1}{2} + 1 \Longrightarrow \text{odd}(n) \]
 
 \[ \text{odd}(n) \Longrightarrow \text{half}(n) = \text{half}(n - 1) \] 
 
-Definition at line \hyperlink{ch02_8hpp_source_l00034}{34} of file \hyperlink{ch02_8hpp_source}{ch02.\+hpp}.
+Definition at line \mbox{\hyperlink{ch02_8hpp_source_l00034}{34}} of file \mbox{\hyperlink{ch02_8hpp_source}{ch02.\+hpp}}.
 
 
 \begin{DoxyCode}

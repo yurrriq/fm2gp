@@ -1,12 +1,30 @@
-with import <nixpkgs> { };
-
 let
-  fm2gp = callPackage ./fm2gp.nix {};
+
+  fetchTarballFromGitHub =
+    { owner, repo, rev, sha256, ... }:
+    builtins.fetchTarball {
+      url = "https://github.com/${owner}/${repo}/tarball/${rev}";
+      inherit sha256;
+    };
+
+  fromJSONFile = f: builtins.fromJSON (builtins.readFile f);
+
 in
 
-stdenv.mkDerivation rec {
-  name = "fm2gp-${version}";
-  version = "0.0.1";
+{ nixpkgs ? fetchTarballFromGitHub (fromJSONFile ./nixpkgs-src.json) }:
 
-  buildInputs = [ fm2gp doxygen ];
-}
+with import nixpkgs {
+  overlays = [
+    (self: super: {
+      fm2gp = super.callPackage ./src {};
+    })
+  ];
+};
+
+
+if lib.inNixShell then
+  mkShell {
+    buildInputs = fm2gp.nativeBuildInputs;
+  }
+else
+  fm2gp

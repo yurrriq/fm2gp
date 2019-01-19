@@ -1,12 +1,8 @@
+.PHONY: all docs
+
 all:
-	${MAKE} -C src $@
+	nix-build
 
-clean:
-	${MAKE} -C src $@
+docs: $(wildcard src/*.cpp) $(wildcard src/*.hpp)
+	nix-shell --run 'make -C src docs doc=$(CURDIR)/docs'
 
-install:
-	${MAKE} -C src $@
-
-docs: src/*.cpp src/*.hpp
-	cd src; doxygen
-	${MAKE} -C docs/latex
